@@ -1,0 +1,37 @@
+body {
+    box-sizing: border-box;
+}
+
+#container {
+    height: 95vh;
+    width: 95vw;
+    border: 1px solid black;
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+}
+
+#btn-row {
+    display: flex;
+    justify-content: center;
+}
+
+#grid-size-btn {
+    margin: 10px;
+    padding: 3px 12px;
+}
+
+.row {
+    display: flex;
+    border: 1px solid red;
+    flex: 1;
+}
+
+.grid {
+    border: 1px solid blue;
+    flex: 1;
+}
+
+.grid:hover {
+    background-color: yellow;
+}

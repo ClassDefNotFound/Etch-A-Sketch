@@ -1,8 +1,11 @@
 
-function createGrid() {
+function createGrid(gridSize) {
     const container = document.querySelector('#container');
 
-    const gridSize = 16;
+    // Check if there are any existing grids and delete it
+    const existingGrid = document.querySelectorAll('.row');
+    existingGrid.forEach(elem => elem.remove());
+
     for (let x = 0; x < gridSize; x++) {
         const row = document.createElement('div');
         row.classList.add('row');
@@ -15,6 +18,8 @@ function createGrid() {
         container.appendChild(row);
     }
 
+    setBtnText(gridSize);
+
 };
 
 function setBtnText(size) {
@@ -23,8 +28,15 @@ function setBtnText(size) {
 }
 
 function promptGridSize() {
-    
+    let gridSize;
+    while (!gridSize || gridSize > 100) {
+        gridSize = +(prompt('Enter a grid size: (Must be a number <= 100~)'));
+    }
+
+    createGrid(gridSize);
 }
 
-createGrid();
-setBtnText(16);
+createGrid(16);
+
+const gridBtn = document.querySelector('#grid-size-btn');
+gridBtn.addEventListener('click', promptGridSize);

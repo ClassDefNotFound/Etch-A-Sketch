@@ -12,6 +12,8 @@ function createGrid(gridSize) {
         for (let y = 0; y < gridSize; y++) {
             const col = document.createElement('div');
             col.classList.add('grid');
+            col.addEventListener('mouseenter', onGridMouseEnter);
+            col.addEventListener('mouseleave', onGridMouseLeave);
             row.appendChild(col);
 
         }
@@ -21,6 +23,19 @@ function createGrid(gridSize) {
     setBtnText(gridSize);
 
 };
+
+function onGridMouseEnter(e) {
+    // Randomly generate 3 RGB values 
+    const rngColors = [];
+    for (let i = 0; i < 3; i++) {
+        rngColors.push(Math.ceil(Math.random()*255));
+    }
+    e.target.style.backgroundColor = `rgb(${rngColors.join(',')})`;
+}
+
+function onGridMouseLeave(e) {
+    e.target.style.backgroundColor = null;
+}
 
 function setBtnText(size) {
     const btn = document.querySelector('#grid-size-btn');

@@ -32,6 +32,6 @@ body {
     flex: 1;
 }
 
-.grid:hover {
+.rng-hover {
     background-color: yellow;
 }
